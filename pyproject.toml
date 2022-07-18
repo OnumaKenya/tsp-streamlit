@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "tsp-streamlit"
+version = "0.1.0"
+description = ""
+authors = ["OnumaKenya <kenyaonuma@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.11.0"
+mip = "^1.14.0"
+numpy = "^1.23.1"
+pandas = "^1.4.3"
+
+[tool.poetry.dev-dependencies]
+pysen = "0.10.2"
+flake8 = "4.0.1"
+isort = "5.10.1"
+black = "22.6.0"
+mypy = "0.961"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.10.2"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 120
+py_version = "py310"
+isort_known_third_party = ["numpy"]
+isort_known_first_party = ["pysen", "app"]
+mypy_ignore_packages = ["pysen.generated.*"]
+mypy_path = ["stubs"]
+
+[[tool.pysen.lint.mypy_targets]]
+paths = ["."]
